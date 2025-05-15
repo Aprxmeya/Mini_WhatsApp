@@ -1,5 +1,5 @@
+import 'package:chat_app_final/auth/auth_service.dart';
 import 'package:flutter/material.dart';
-
 import '../Components/Textfield.dart';
 import '../Components/button.dart';
 
@@ -11,7 +11,34 @@ class registerpage extends StatelessWidget {
   final TextEditingController pwcontroller = new TextEditingController();
   final TextEditingController cpwcontroller = new TextEditingController();
 
-  void register_method(){}
+  void register_method(BuildContext context){
+    final auth = AuthService();
+    // password match create
+    if(cpwcontroller.text == pwcontroller.text){
+      try{
+         auth.signupwithemailpassword(ewcontroller.text, pwcontroller.text);
+      }
+      catch (e){
+        showDialog
+          (context: context,
+            builder: (context) => AlertDialog(
+          title: Text(e.toString()),
+        ));
+      }
+    }
+    else {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+        title: Text("Incorrect Password"),
+      ));
+    }
+
+
+
+  }
+
+
   final void Function()? onTap;
 
   @override
@@ -52,7 +79,7 @@ class registerpage extends StatelessWidget {
 
               SizedBox(height: 30),
 
-              mybutton(text: "Register", onTap: register_method),
+              mybutton(text: "Register", onTap: ()=> register_method(context)),
 
               SizedBox(height: 30),
 

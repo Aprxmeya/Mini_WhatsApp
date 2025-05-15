@@ -1,16 +1,32 @@
+import 'dart:math';
+
 import 'package:chat_app_final/Components/Textfield.dart';
 import 'package:chat_app_final/Components/button.dart';
+import 'package:chat_app_final/auth/auth_service.dart';
 import 'package:flutter/material.dart';
 
 import 'package:chat_app_final/theme/lightmode.dart';
+
 
 class loginpage extends StatelessWidget {
 
   final TextEditingController ewcontroller = new TextEditingController();
   final TextEditingController pwcontroller = new TextEditingController();
 
-  void ontapp(){
-    // do nothing for current status
+  void login(BuildContext context) async{  // login is used for login button
+
+    //import authservice function from auth/authservice
+    final authService = AuthService();
+
+    //try for login; catch the error
+    try{
+      await authService.signinwithemailpassword(ewcontroller.text, pwcontroller.text);
+    }catch(e){
+      showDialog(context: context, builder: (context) => AlertDialog(
+        title: Text(e.toString()),
+      ));
+    }
+
   }
   final void Function()? onTap;
 
@@ -49,19 +65,14 @@ class loginpage extends StatelessWidget {
 
             SizedBox(height: 30),
 
-            mybutton(text: "Login", onTap: ontapp),
+            mybutton(text: "Login", onTap: ()=> login(context)),
 
             SizedBox(height: 30),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "Not a memeber yet ? ",
-                  style: TextStyle(
-                      //fontWeight: FontWeight.bold,
-                      color: Theme.of(context).colorScheme.primary),
-                ),
+                Text("Not a member? "),
                 GestureDetector(
                   onTap: onTap,
                   child: Text(
@@ -74,15 +85,6 @@ class loginpage extends StatelessWidget {
                 ),
               ],
             ),
-            
-
-
-
-
-
-
-
-
 
 
           ],

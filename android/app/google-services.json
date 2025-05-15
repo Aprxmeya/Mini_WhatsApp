@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "567307439040",
+    "project_id": "chata-28d36",
+    "storage_bucket": "chata-28d36.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:567307439040:android:89b3ae628ef83bfa145625",
+        "android_client_info": {
+          "package_name": "com.example.chat_app_final"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTpKaK-gCjU1vedL01SsmiYZB_xDu3WUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
