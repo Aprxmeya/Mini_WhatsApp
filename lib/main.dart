@@ -25,7 +25,7 @@ class Myapp extends StatelessWidget {
     return MaterialApp(
       theme: light_mode,
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: AuthGate(),
     );
   }
 }
