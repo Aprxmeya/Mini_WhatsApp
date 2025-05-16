@@ -30,7 +30,7 @@ class MyDrawer extends StatelessWidget {
           Padding(
               padding:EdgeInsets.only(left: 25),
             child: ListTile(
-              title: Text("HOME"),
+              title: const Text("HOME"),
               leading:Icon(Icons.home,color: Colors.grey,),
               onTap: () {
                 // pop the drawer so you can see the home page again
@@ -42,7 +42,7 @@ class MyDrawer extends StatelessWidget {
           Padding(
             padding:EdgeInsets.only(left: 25),
             child: ListTile(
-              title: Text("SETTINGS"),
+              title:const Text("SETTINGS"),
               leading:Icon(Icons.settings,color: Colors.grey,),
               onTap: () {
                 Navigator.pop(context);
@@ -55,7 +55,7 @@ class MyDrawer extends StatelessWidget {
           Padding(
             padding:EdgeInsets.only(left: 25),
             child: ListTile(
-              title: Text("LOGOUT"),
+              title: const Text("LOGOUT"),
               leading:Icon(Icons.logout,color: Colors.grey,),
               onTap: () => logout(context),
             ),
